@@ -1,8 +1,6 @@
-# Acquire()
+<img src="http://jochemstoel.github.io/img/acquire-img.jpg">
 
 Acquire function allows you to synchronously and asynchronously initialize Javascript modules in your browser. It behaves like Node.js’s require(), meaning it exposes <i>module.exports</i>. It can be used to load modules from your local or external host.
-
-<img src="http://jochemstoel.github.io/img/acquire-img.jpg">
 
 ## Include on page
 ```html
