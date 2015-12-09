@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Acquire.js by jochemstoel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Acquire.js</h1>
+      <h2 class="project-tagline">Acquire function allows you to synchronously and asynchronously initialize Javascript modules in your browser. It behaves like Node.js’s require(), meaning it exposes module.exports.</h2>
+      <a href="https://github.com/jochemstoel/acquire" class="btn">View on GitHub</a>
+      <a href="https://github.com/jochemstoel/acquire/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jochemstoel/acquire/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><img src="http://jochemstoel.github.io/img/acquire-img.jpg"></p>
+
+<p>Acquire function allows you to synchronously and asynchronously initialize Javascript modules in your browser. It behaves like Node.js’s require(), meaning it exposes <i>module.exports</i>. It can be used to load modules from your local or external host.</p>
+
+<h2>
+<a id="include-on-page" class="anchor" href="#include-on-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Include on page</h2>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>application/javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>acquire.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h2>
+<a id="synchronous" class="anchor" href="#synchronous" aria-hidden="true"><span class="octicon octicon-link"></span></a>Synchronous</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">/* Synchronous XMLHttp requests are deprecated. */</span>
+<span class="pl-k">var</span> myfunction <span class="pl-k">=</span> <span class="pl-en">acquire</span>(<span class="pl-s"><span class="pl-pds">'</span>somefile<span class="pl-pds">'</span></span>);</pre></div>
+
+<h2>
+<a id="asynchronous" class="anchor" href="#asynchronous" aria-hidden="true"><span class="octicon octicon-link"></span></a>aSynchronous</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">acquire</span>(<span class="pl-s"><span class="pl-pds">'</span>somefile<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">exp</span>)
+{
+  <span class="pl-c1">exp</span>(<span class="pl-s"><span class="pl-pds">'</span>There is no spoon.<span class="pl-pds">'</span></span>); <span class="pl-c">// exp equals module.exports</span>
+});</pre></div>
+
+<h2>
+<a id="expose-to-window" class="anchor" href="#expose-to-window" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expose to window</h2>
+
+<p>Expose asynchronously loaded modules to the global window object.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">acquire</span>(<span class="pl-s"><span class="pl-pds">'</span>somefile<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">exp</span>)
+{
+  <span class="pl-smi">window</span>.<span class="pl-smi">mymodule</span> <span class="pl-k">=</span> exp;
+});</pre></div>
+
+<h2>
+<a id="load-modules-from-a-different-domain" class="anchor" href="#load-modules-from-a-different-domain" aria-hidden="true"><span class="octicon octicon-link"></span></a>Load modules from a different domain</h2>
+
+<p>Don’t forget to define the allowed request origin in your .htaccess file if you want to load packages from a different domain.</p>
+
+<p>Add te following code to your .htaccess file to allow XMLHttpRequests from other domains. </p>
+
+<pre lang="conf"><code>RewriteEngine on
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
+</code></pre>
+
+<p>If you need to enable Apache Headers Module, open a terminal and type the following:</p>
+
+<div class="highlight highlight-source-shell"><pre>a2enmod headers
+service apache2 restart</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jochemstoel/acquire">Acquire.js</a> is maintained by <a href="https://github.com/jochemstoel">jochemstoel</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
