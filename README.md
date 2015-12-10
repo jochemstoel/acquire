@@ -1,10 +1,10 @@
 # Acquire()
 
-Acquire function allows you to synchronously and asynchronously initialize Javascript modules in your browser. It behaves like Node.js’s require(), meaning it exposes <i>module.exports</i>. It can be used to load modules from your local or external host. Don’t forget to define the allowed request origin in your .htaccess file if you want to load packages from a different domain.
+Acquire function allows you to synchronously and asynchronously initialize Javascript modules in your browser. It behaves like Node.js’s require(), meaning it exposes <i>module.exports</i>. It can be used to load modules from your local or external host. 
 
 ## Include on page
 ```html
-&lt;script type="application/javascript" src="acquire.js"&gt;&lt;/script&gt;
+<script type="application/javascript" src="acquire.js"></script>
 ```
 
 ## Synchronous
@@ -29,4 +29,20 @@ acquire('somefile', function(exp)
 {
   window.mymodule = exp;
 });
+``` 
+## Load modules from a different domain
+Don’t forget to define the allowed request origin in your .htaccess file if you want to load packages from a different domain.
+
+Add te following code to your .htaccess file to allow XMLHttpRequests from other domains. 
+```conf
+RewriteEngine on
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+Header add Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
+```
+
+If you need to enable Apache Headers Module, open a terminal and type the following:
+```bash
+a2enmod headers
+service apache2 restart
 ``` 
